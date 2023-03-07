@@ -1,0 +1,5 @@
+1,Popescu,Andrei,27,andrei.popescu@gmail.com,Parola123
+2,Alexandru,Radu,30,alexandru.radu@yahoo.com,Password456
+3,Marinescu,Ion,28,ion.marinescu@hotmail.com,Secret789
+4,Stoica,Mihai,32,mihai.stoica@gmail.com,123456Abc
+5,Dumitrescu,Victor,31,victor.dumitrescu@yahoo.com,StrongPassword!
