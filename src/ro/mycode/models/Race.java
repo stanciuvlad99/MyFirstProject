@@ -3,13 +3,13 @@ package ro.mycode.models;
 public class Race {
     private int raceId = 0;
     private String name = "";
-    private String department = "";
+    private String raceType = "";
 
     public Race(String text) {
         String[] split = text.split(",");
         this.raceId = Integer.parseInt(split[0]);
         this.name = split[1];
-        this.department = split[2];
+        this.raceType = split[2];
     }
 
     public void setRaceId(int raceId) {
@@ -28,17 +28,17 @@ public class Race {
         return name;
     }
 
-    public void setDepartment(String department) {
-        this.department = department;
+    public void setRaceType(String raceType) {
+        this.raceType = raceType;
     }
 
-    public String getDepartment() {
-        return department;
+    public String getRaceType() {
+        return raceType;
     }
 
     public String descriere() {
         String descriere = "Id-ul cursei este " + raceId + ", numele cursei este " + name + " iar departamentul este " +
-                department;
+                raceType;
         return descriere;
     }
 }
