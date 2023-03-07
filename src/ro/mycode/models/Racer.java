@@ -2,8 +2,8 @@ package ro.mycode.models;
 
 public class Racer {
     private int racerId = 0;
-    private String firstName = "";
     private String lastName = "";
+    private String firstName = "";
     private int age = 0;
     private String email = "";
     private String password = "";

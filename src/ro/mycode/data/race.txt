@@ -1,0 +1,5 @@
+1,Vortex Cup,cursa de anduranta
+2,Thunder Rally,raliu pe trasee forestiere
+3,Urban Speed,cursa de viteza pe strazi urbane
+4,Desert Storm,cursa off-road în desert
+5,Grand Prix Circuit,cursa de viteza pe circuite inchise.
