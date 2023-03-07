@@ -1,13 +1,13 @@
 package ro.mycode.models;
 
-public class Cars {
+public class Car {
     private int carId = 0;
     private int racerId = 0;
     private int number = 0;
     private String brand = "";
     private String model = "";
 
-    public Cars(String text) {
+    public Car(String text) {
         String[] split = text.split(",");
         this.carId = Integer.parseInt(split[0]);
         this.racerId = Integer.parseInt(split[1]);
@@ -58,7 +58,7 @@ public class Cars {
 
     public String descriere() {
         String descriere = "Id-ul masinii este " + carId + ", id-ul pilotului de curse este " + racerId +
-                " numarul masinii este " + number + ", iar marca si modelul sunt " + brand + " " + model;
+                " numarul masinii este " + number + ", iar marca si modelul masinii sunt " + brand + " " + model;
         return descriere;
     }
 }

@@ -37,7 +37,7 @@ public class Race {
     }
 
     public String descriere() {
-        String descriere = "Id-ul cursei este " + raceId + ", numele cursei este " + name + " iar departamentul este " +
+        String descriere = "Id-ul cursei este " + raceId + ", numele cursei este " + name + " iar tipul cursei este " +
                 raceType;
         return descriere;
     }
