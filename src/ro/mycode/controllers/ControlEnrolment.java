@@ -59,4 +59,20 @@ public class ControlEnrolment {
     public void add(Enrolmet enrolmet){
         this.enrolmets.add(enrolmet);
     }
+
+    //todo: functie ce returnaza inscriere, primeste ca prametru race id si racer id
+    public Enrolmet findByRaceIdRacerId(int raceId, int racerId){
+        for (int i=0; i<enrolmets.size(); i++){
+            if (enrolmets.get(i).getRaceId()==raceId && enrolmets.get(i).getRacerId()==racerId){
+                return enrolmets.get(i);
+            }
+        }
+        return null;
+    }
+
+    //todo: functie ce elimna o inscriere din lista, primeste constructor ca parametru
+    public void removeEnrolment(Enrolmet enrolmet){
+        this.enrolmets.remove(enrolmet);
+    }
+
 }
