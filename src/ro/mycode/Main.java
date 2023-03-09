@@ -1,10 +1,6 @@
 package ro.mycode;
 
-import ro.mycode.controllers.ControlCar;
-import ro.mycode.controllers.ControlEnrolment;
-import ro.mycode.controllers.ControlRace;
-import ro.mycode.controllers.ControlRacer;
-import ro.mycode.view.ViewStudent;
+import ro.mycode.view.ViewRacer;
 
 public class Main {
     public static void main(String[] args) {
@@ -20,8 +16,8 @@ public class Main {
 //        ControlEnrolment controlEnrolment = new ControlEnrolment();
 //        controlEnrolment.read();
 
-        ViewStudent viewStudent = new ViewStudent();
-        System.out.println(viewStudent);
+        ViewRacer viewRacer = new ViewRacer();
+        System.out.println(viewRacer);
 
     }
 }
