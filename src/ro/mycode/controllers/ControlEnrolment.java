@@ -29,9 +29,21 @@ public class ControlEnrolment {
         }
     }
 
+    //todo: functie ce afiseaza toate inscrierile
     public void read(){
         for (int i=0; i<enrolmets.size(); i++){
             System.out.println(enrolmets.get(i).descriere());
         }
+    }
+
+    //todo: functie ce creaza lista de inscrieri, primeste racer id ca parametru
+    public ArrayList<Enrolmet> listaInscrieri(int racerId){
+        ArrayList<Enrolmet> list = new ArrayList<>();
+        for (int i=0; i<enrolmets.size(); i++){
+            if (enrolmets.get(i).getRacerId()==racerId){
+                list.add(enrolmets.get(i));
+            }
+        }
+        return list;
     }
 }
