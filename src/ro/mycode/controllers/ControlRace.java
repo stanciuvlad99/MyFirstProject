@@ -88,4 +88,17 @@ public class ControlRace {
             update.setRaceId(race.getRaceId());
         }
     }
+
+    //todo: functie ce returneaza un id valid
+    public int nextId(){
+        if (races.size()==0){
+            return -1;
+        }
+        return races.get(races.size()-1).getRaceId()+1;
+    }
+
+    //todo: functie ce creazau o noua cursa, primeste constructor ca parametru
+    public void add(Race race){
+        this.races.add(race);
+    }
 }
