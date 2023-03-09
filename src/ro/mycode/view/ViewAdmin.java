@@ -2,6 +2,7 @@ package ro.mycode.view;
 
 import ro.mycode.controllers.ControlRace;
 import ro.mycode.controllers.ControlRacer;
+import ro.mycode.models.Race;
 import ro.mycode.models.Racer;
 
 import java.util.Scanner;
@@ -21,6 +22,7 @@ public class ViewAdmin {
         System.out.println("Apasati tasta 1 pentru a vedea toti politii de curse");
         System.out.println("Apasati tasta 2 pentru a limina un pilor de curse din baza de date");
         System.out.println("Apasati tasta 3 pentru a vedea toate cursele");
+        System.out.println("Apasati tasta 4 pentru a elimina o cursa");
     }
 
     private void play() {
@@ -37,6 +39,9 @@ public class ViewAdmin {
                     eliminarePilot();
                     break;
                 case 3:afisareCurse();
+                break;
+                case 4:eliminareCursa();
+                break;
                 default:
                     break;
             }
@@ -65,6 +70,20 @@ public class ViewAdmin {
     private void afisareCurse() {
         controlRace.read();
     }
+
+    private void eliminareCursa(){
+        System.out.println("Introduceti numele cursei");
+        Scanner scanner = new Scanner(System.in);
+        String numeCursa=scanner.nextLine();
+        Race race = controlRace.findByName(numeCursa);
+            if (race!=null){
+                controlRace.removeRace(race);
+                System.out.println("Cursa a fost eliminata din lista");
+            }else {
+                System.out.println(numeCursa +" nu exista in baza de date");
+        }
+        }
+
 
 
 }
