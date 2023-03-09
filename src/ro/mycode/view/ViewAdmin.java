@@ -1,5 +1,6 @@
 package ro.mycode.view;
 
+import ro.mycode.controllers.ControlRace;
 import ro.mycode.controllers.ControlRacer;
 import ro.mycode.models.Racer;
 
@@ -8,8 +9,10 @@ import java.util.Scanner;
 public class ViewAdmin {
 
     private ControlRacer controlRacer;
+    private ControlRace controlRace;
 
     public ViewAdmin() {
+        this.controlRace = new ControlRace();
         this.controlRacer = new ControlRacer();
         play();
     }
@@ -17,6 +20,7 @@ public class ViewAdmin {
     private void menu() {
         System.out.println("Apasati tasta 1 pentru a vedea toti politii de curse");
         System.out.println("Apasati tasta 2 pentru a limina un pilor de curse din baza de date");
+        System.out.println("Apasati tasta 3 pentru a vedea toate cursele");
     }
 
     private void play() {
@@ -32,6 +36,7 @@ public class ViewAdmin {
                 case 2:
                     eliminarePilot();
                     break;
+                case 3:afisareCurse();
                 default:
                     break;
             }
@@ -55,6 +60,10 @@ public class ViewAdmin {
         } else {
             System.out.println(prenume + " " + nume + " nu exista in baza de date ");
         }
+    }
+
+    private void afisareCurse() {
+        controlRace.read();
     }
 
 
