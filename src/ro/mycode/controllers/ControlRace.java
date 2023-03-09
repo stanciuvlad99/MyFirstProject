@@ -28,9 +28,20 @@ public class ControlRace {
         }
     }
 
+    //todo: functie ce afiseaza toate cursele
     public void read(){
         for (int i=0; i<races.size(); i++){
             System.out.println(races.get(i).descriere());
         }
+    }
+
+    //todo: functie ce returnaza cursa, primeste racer id ca parametru
+    public Race findByRaceId(int raceId){
+        for (int i=0; i<races.size(); i++){
+            if (races.get(i).getRaceId()==raceId){
+                return races.get(i);
+            }
+        }
+        return null;
     }
 }
