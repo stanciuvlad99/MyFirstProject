@@ -55,6 +55,9 @@ public class ControlRace {
         return null;
     }
 
-
+    //todo: functie ce limina o cursa din lista, primeste constructor ca parametru
+    public void removeRace(Race race){
+        this.races.remove(race);
+    }
 
 }
