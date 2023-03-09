@@ -70,10 +70,12 @@ public class ViewRacer {
                 case 8:
                     eliminareMasina();
                     break;
-                case 9:updateMasina();
-                break;
-                case 10:cursaPopulara();
-                break;
+                case 9:
+                    updateMasina();
+                    break;
+                case 10:
+                    cursaPopulara();
+                    break;
                 default:
                     break;
 
@@ -181,23 +183,23 @@ public class ViewRacer {
         String model = scanner.nextLine();
         Car car = controlCar.findByModel(model);
         if (car != null) {
-            Car car1 = controlCar.findByRacerIdModel(racer.getRacerId(),model);
-            if (car1!=null){
+            Car car1 = controlCar.findByRacerIdModel(racer.getRacerId(), model);
+            if (car1 != null) {
                 System.out.println("Introduceti numarul masinii");
-                int number=Integer.parseInt(scanner.nextLine());
+                int number = Integer.parseInt(scanner.nextLine());
                 System.out.println("Introduceti marca masinii");
-                String brand=scanner.nextLine();
-                controlCar.update(new Car(car.getCarId(), car.getRacerId(),number,brand, car.getModel()));
+                String brand = scanner.nextLine();
+                controlCar.update(new Car(car.getCarId(), car.getRacerId(), number, brand, car.getModel()));
                 System.out.println("Masinii i s-a facut update cu succes");
-            }else {
+            } else {
                 System.out.println(model + " nu va apartine");
             }
-        }else {
+        } else {
             System.out.println(model + " nu exista in baza de date");
         }
     }
 
-    private void cursaPopulara(){
+    private void cursaPopulara() {
         Race race = controlRace.findByRaceId(controlEnrolment.idCeaMaiPopulataCursa());
         System.out.println(race.descriere());
     }
