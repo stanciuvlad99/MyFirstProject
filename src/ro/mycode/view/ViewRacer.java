@@ -11,14 +11,14 @@ import ro.mycode.models.Racer;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class ViewStudent {
+public class ViewRacer {
 
     private Racer racer;
     private ControlCar controlCar;
     private ControlRace controlRace;
     private ControlEnrolment controlEnrolment;
 
-    public ViewStudent() {
+    public ViewRacer() {
         this.controlCar = new ControlCar();
         this.controlRace = new ControlRace();
         this.controlEnrolment = new ControlEnrolment();
@@ -35,6 +35,7 @@ public class ViewStudent {
         System.out.println("Apasati tasta 6 pentru a vedea masinile dumneavoastra");
         System.out.println("Apasati tasta 7 pentru a addauga o masina in baza de date");
         System.out.println("Apasati tasta 8 pentru a elimina o masina");
+        System.out.println("Apasati tasta 9 pentru a face update masinii");
     }
 
     private void play() {
@@ -63,9 +64,12 @@ public class ViewStudent {
                     afisareMasiniPersonale();
                     break;
                 case 7:
-                    adaugaremasina();
+                    adaugareMasina();
                     break;
-                case 8:eliminareMasina();
+                case 8:
+                    eliminareMasina();
+                    break;
+                case 9:updateMasina();
                 break;
                 default:
                     break;
@@ -131,7 +135,7 @@ public class ViewStudent {
 
     }
 
-    private void adaugaremasina() {
+    private void adaugareMasina() {
         System.out.println("Introduceti modelul masinii");
         Scanner scanner = new Scanner(System.in);
         String model = scanner.nextLine();
@@ -150,21 +154,43 @@ public class ViewStudent {
         }
     }
 
-    private void eliminareMasina(){
+    private void eliminareMasina() {
         System.out.println("Introduceti numele masinii");
         Scanner scanner = new Scanner(System.in);
-        String model=scanner.nextLine();
+        String model = scanner.nextLine();
         Car car = controlCar.findByModel(model);
-        if (car!=null){
-            Car car1 = controlCar.findByRacerIdModel(racer.getRacerId(),model);
-            if (car1!=null){
+        if (car != null) {
+            Car car1 = controlCar.findByRacerIdModel(racer.getRacerId(), model);
+            if (car1 != null) {
                 controlCar.removeCar(car1);
                 System.out.println("Masina a fost eliminata din baza de date");
-            }else {
+            } else {
                 System.out.println(model + " nu este a dumneavoastra");
             }
+        } else {
+            System.out.println(model + " nu exista in basa de date");
+        }
+    }
+
+    private void updateMasina() {
+        System.out.println("Introduceti modelul masinii");
+        Scanner scanner = new Scanner(System.in);
+        String model = scanner.nextLine();
+        Car car = controlCar.findByModel(model);
+        if (car != null) {
+            Car car1 = controlCar.findByRacerIdModel(racer.getRacerId(),model);
+            if (car1!=null){
+                System.out.println("Introduceti numarul masinii");
+                int number=Integer.parseInt(scanner.nextLine());
+                System.out.println("Introduceti marca masinii");
+                String brand=scanner.nextLine();
+                controlCar.update(new Car(car.getCarId(), car.getRacerId(),number,brand, car.getModel()));
+                System.out.println("Masinii i s-a facut update cu succes");
+            }else {
+                System.out.println(model + " nu va apartine");
+            }
         }else {
-            System.out.println(model+" nu exista in basa de date");
+            System.out.println(model + " nu exista in baza de date");
         }
     }
 }

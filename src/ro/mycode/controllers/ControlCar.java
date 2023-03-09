@@ -94,5 +94,16 @@ public class ControlCar {
         this.cars.remove(car);
     }
 
+    //todo: functie ce face update masinii, primeste constructor ca parametru
+    public void update(Car car){
+        Car update = findByModel(car.getModel());
+        if (car.getBrand().equals("")==false){
+            update.setBrand(car.getBrand());
+        }
+        if ((car.getNumber()==0)==false){
+            update.setNumber(car.getNumber());
+        }
+    }
+
 
 }
