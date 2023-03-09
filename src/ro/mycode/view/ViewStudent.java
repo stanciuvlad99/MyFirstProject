@@ -25,6 +25,7 @@ public class ViewStudent {
     private void menu() {
         System.out.println("Apasati tasta 1 pentru a vedea toate cursele");
         System.out.println("Apasati tasta 2 pentru a vedea curslele la care sunteti inscris");
+        System.out.println("Apasati tasta 3 pentru a va inscrie la o cursa");
     }
 
     private void play() {
@@ -38,6 +39,8 @@ public class ViewStudent {
                     afisareCurse();
                     break;
                 case 2:afisreInscrieri();
+                break;
+                case 3:inscriereCursa();
                 break;
                 default:
                     break;
@@ -55,6 +58,20 @@ public class ViewStudent {
         for (int i=0; i<lista.size(); i++){
             Race race = controlRace.findByRaceId(lista.get(i).getRaceId());
             System.out.println(race.descriere());
+        }
+    }
+
+    private void inscriereCursa(){
+        System.out.println("Introduceti numele cursei");
+        Scanner scanner = new Scanner(System.in);
+        String numeCursa=scanner.nextLine();
+        Race race = controlRace.findByName(numeCursa);
+        if (race!=null){
+            Enrolmet enrolmet = new Enrolmet(controlEnrolment.nextId(),racer.getRacerId(), race.getRaceId());
+            this.controlEnrolment.add(enrolmet);
+            System.out.println("V-ati inscris cu succes la curs" + numeCursa);
+        }else {
+            System.out.println(numeCursa + " nu exista");
         }
     }
 }
