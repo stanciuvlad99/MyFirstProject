@@ -1,7 +1,6 @@
 package ro.mycode.view;
 
 import ro.mycode.controllers.ControlRace;
-import ro.mycode.models.Race;
 import ro.mycode.models.Racer;
 
 import java.util.Scanner;
@@ -28,7 +27,12 @@ public class ViewStudent {
             int alegere=Integer.parseInt(scanner.nextLine());
             switch (alegere){
                 case 1:
+                    afisareCurse();
             }
         }
+    }
+
+    private void afisareCurse(){
+        controlRace.read();
     }
 }
