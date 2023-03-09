@@ -57,4 +57,25 @@ public class ControlCar {
     public void add(Car car){
         this.cars.add(car);
     }
+
+    //todo: funtie ce returnaza lita de masini, primeste racer id ca parametru
+    public ArrayList<Car> listaMasiniPersonale(int racerId){
+        ArrayList<Car> list = new ArrayList<>();
+        for (int i=0; i<cars.size(); i++){
+            if (cars.get(i).getRacerId()==racerId){
+                list.add(cars.get(i));
+            }
+        }
+        return list;
+    }
+
+    //todo: functie ce returneaza masina, primeste car id ca parametru
+    public Car findById(int carId){
+        for (int i=0; i<cars.size(); i++){
+            if (cars.get(i).getCarId()==carId){
+                return cars.get(i);
+            }
+        }
+        return null;
+    }
 }
