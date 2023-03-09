@@ -29,10 +29,27 @@ public class ControlRacer {
         }
     }
 
+    //todo: functie ce afiseaza toti studentii
     public void read(){
         for (int i=0; i<racers.size(); i++){
             System.out.println(racers.get(i).descriere());
         }
     }
+
+    //todo: functie ce returneaza un pilot, primeste ca parametru firstname si lastname
+    public Racer findByFirstNameLastname(String firstName, String lastname){
+        for (int i=0; i<racers.size(); i++){
+            if (racers.get(i).getFirstName().equals(firstName) && racers.get(i).getLastName().equals(lastname)){
+                return racers.get(i);
+            }
+        }
+        return null;
+    }
+
+    //todo: functie ce elimina un pilot, primeste constructor ca paramereu
+    public void removeRacer(Racer racer){
+        this.racers.remove(racer);
+    }
+
 }
 
