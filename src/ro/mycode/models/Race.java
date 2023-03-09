@@ -5,6 +5,12 @@ public class Race {
     private String name = "";
     private String raceType = "";
 
+    public Race(int raceId, String name, String raceType) {
+        this.raceId = raceId;
+        this.name = name;
+        this.raceType = raceType;
+    }
+
     public Race(String text) {
         String[] split = text.split(",");
         this.raceId = Integer.parseInt(split[0]);

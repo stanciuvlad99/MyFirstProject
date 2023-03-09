@@ -60,4 +60,32 @@ public class ControlRace {
         this.races.remove(race);
     }
 
+    //todo: functie ce returneaza cursa, primeste tipul cursei ca parametru
+    public Race findByType(int raceId){
+        for (int i=0; i<races.size(); i++){
+            if (races.get(i).getRaceId()==raceId){
+                return races.get(i);
+            }
+        }
+        return null;
+    }
+
+    //todo: functie ce fadce update numelui cursei, primeste constructor ca parametru
+    public void updateName(Race race){
+        Race update=findByRaceId(race.getRaceId());
+        if (race.getName().equals("")==false){
+            update.setName(race.getName());
+        }
+    }
+
+    //todo: functie ce face update id-ului cursei si tipului cursei, primeste constructor ca parametru
+    public void updateIdRaceType(Race race){
+        Race update=findByName(race.getName());
+        if (race.getRaceType().equals("")==false){
+            update.setRaceType(race.getRaceType());
+        }
+        if ((race.getRaceId()==0)==false){
+            update.setRaceId(race.getRaceId());
+        }
+    }
 }
