@@ -45,7 +45,7 @@ public class ControlRace {
         return null;
     }
 
-    //todo:functie ce returneaza cursa, primeste race name
+    //todo: functie ce returneaza cursa, primeste race name
     public Race findByName(String numeCurs){
         for (int i=0; i<races.size(); i++){
             if (races.get(i).getName().equals(numeCurs)){
@@ -54,4 +54,7 @@ public class ControlRace {
         }
         return null;
     }
+
+
+
 }

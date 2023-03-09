@@ -75,4 +75,31 @@ public class ControlEnrolment {
         this.enrolmets.remove(enrolmet);
     }
 
+
+    //todo: functie ce returneaza frecventa
+    public int[] frecventaCurse() {
+        int frecventa[]=new int[1000];
+        for (int i=0; i<enrolmets.size(); i++){
+            frecventa[enrolmets.get(i).getRaceId()]++;
+        }
+            return frecventa;
+    }
+
+    //todo: functie ce returneaza pozitia celui mai populate curse, primeste vector ca parametru
+    public int pozitieMaximaCurse(int vector[]){
+        int max=vector[0];
+        int pozitie=0;
+
+        for (int i=0; i<vector.length; i++){
+            if (max<vector[i]){
+                max=vector[i];
+                pozitie=i;
+            }
+        }
+        return pozitie;
+    }
+
+    public int idCeaMaiPopulataCursa(){
+        return pozitieMaximaCurse(frecventaCurse());
+    }
 }

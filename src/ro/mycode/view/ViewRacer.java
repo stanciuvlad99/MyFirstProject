@@ -36,6 +36,7 @@ public class ViewRacer {
         System.out.println("Apasati tasta 7 pentru a addauga o masina in baza de date");
         System.out.println("Apasati tasta 8 pentru a elimina o masina");
         System.out.println("Apasati tasta 9 pentru a face update masinii");
+        System.out.println("Apasati tasta 10 pentru a vedea cea mai populata cursa");
     }
 
     private void play() {
@@ -70,6 +71,8 @@ public class ViewRacer {
                     eliminareMasina();
                     break;
                 case 9:updateMasina();
+                break;
+                case 10:cursaPopulara();
                 break;
                 default:
                     break;
@@ -192,5 +195,10 @@ public class ViewRacer {
         }else {
             System.out.println(model + " nu exista in baza de date");
         }
+    }
+
+    private void cursaPopulara(){
+        Race race = controlRace.findByRaceId(controlEnrolment.idCeaMaiPopulataCursa());
+        System.out.println(race.descriere());
     }
 }
