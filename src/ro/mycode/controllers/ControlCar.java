@@ -36,7 +36,7 @@ public class ControlCar {
     }
 
     //todo: functie ce returneaza masina dupa nume, primeste model ca paramametru
-    public Car findByName(String carModel){
+    public Car findByModel(String carModel){
         for (int i=0; i<cars.size(); i++){
             if (cars.get(i).getModel().equals(carModel)){
                 return cars.get(i);
@@ -78,4 +78,21 @@ public class ControlCar {
         }
         return null;
     }
+
+    //todo: functie ce returnaza masina, primeste ca parametru racer id si model masina
+    public Car findByRacerIdModel(int racerId, String model){
+        for (int i=0; i<cars.size(); i++){
+            if (cars.get(i).getRacerId()==racerId && cars.get(i).getModel().equals(model)){
+                return cars.get(i);
+            }
+        }
+        return null;
+    }
+
+    //todo: functie ce elimina masina din baza de date, primeste constructor ca parametru
+    public void removeCar(Car car){
+        this.cars.remove(car);
+    }
+
+
 }

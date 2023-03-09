@@ -19,7 +19,7 @@ public class ViewStudent {
     private ControlEnrolment controlEnrolment;
 
     public ViewStudent() {
-        this.controlCar=new ControlCar();
+        this.controlCar = new ControlCar();
         this.controlRace = new ControlRace();
         this.controlEnrolment = new ControlEnrolment();
         this.racer = new Racer("2,Alexandru,Radu,30,alexandru.radu@yahoo.com,Password456");
@@ -34,6 +34,7 @@ public class ViewStudent {
         System.out.println("Apasati tasta 5 pentru a vedea toate masinile");
         System.out.println("Apasati tasta 6 pentru a vedea masinile dumneavoastra");
         System.out.println("Apasati tasta 7 pentru a addauga o masina in baza de date");
+        System.out.println("Apasati tasta 8 pentru a elimina o masina");
     }
 
     private void play() {
@@ -46,17 +47,25 @@ public class ViewStudent {
                 case 1:
                     afisareCurse();
                     break;
-                case 2:afisreInscrieri();
-                break;
-                case 3:inscriereCursa();
-                break;
-                case 4:renuntareInscriere();
-                break;
-                case 5:afisareMasini();
-                break;
-                case 6:afisareMasiniPersonale();
-                break;
-                case 7:adaugaremasina();
+                case 2:
+                    afisreInscrieri();
+                    break;
+                case 3:
+                    inscriereCursa();
+                    break;
+                case 4:
+                    renuntareInscriere();
+                    break;
+                case 5:
+                    afisareMasini();
+                    break;
+                case 6:
+                    afisareMasiniPersonale();
+                    break;
+                case 7:
+                    adaugaremasina();
+                    break;
+                case 8:eliminareMasina();
                 break;
                 default:
                     break;
@@ -70,74 +79,92 @@ public class ViewStudent {
     }
 
     private void afisreInscrieri() {
-        ArrayList<Enrolmet> lista=controlEnrolment.listaInscrieri(racer.getRacerId());
-        for (int i=0; i<lista.size(); i++){
+        ArrayList<Enrolmet> lista = controlEnrolment.listaInscrieri(racer.getRacerId());
+        for (int i = 0; i < lista.size(); i++) {
             Race race = controlRace.findByRaceId(lista.get(i).getRaceId());
             System.out.println(race.descriere());
         }
     }
 
-    private void inscriereCursa(){
+    private void inscriereCursa() {
         System.out.println("Introduceti numele cursei");
         Scanner scanner = new Scanner(System.in);
-        String numeCursa=scanner.nextLine();
+        String numeCursa = scanner.nextLine();
         Race race = controlRace.findByName(numeCursa);
-        if (race!=null){
-            Enrolmet enrolmet = new Enrolmet(controlEnrolment.nextId(),racer.getRacerId(), race.getRaceId());
+        if (race != null) {
+            Enrolmet enrolmet = new Enrolmet(controlEnrolment.nextId(), racer.getRacerId(), race.getRaceId());
             this.controlEnrolment.add(enrolmet);
             System.out.println("V-ati inscris cu succes la curs" + numeCursa);
-        }else {
+        } else {
             System.out.println(numeCursa + " nu exista");
         }
     }
 
-    private void renuntareInscriere(){
+    private void renuntareInscriere() {
         System.out.println("Introduceti numele cursei la care doriti sa renuntatai");
         Scanner scanner = new Scanner(System.in);
-        String numeCursa=scanner.nextLine();
+        String numeCursa = scanner.nextLine();
         Race race = controlRace.findByName(numeCursa);
-        if (race!=null){
-            Enrolmet enrolmet = controlEnrolment.findByRaceIdRacerId(race.getRaceId(),this.racer.getRacerId());
-            if (enrolmet!=null){
+        if (race != null) {
+            Enrolmet enrolmet = controlEnrolment.findByRaceIdRacerId(race.getRaceId(), this.racer.getRacerId());
+            if (enrolmet != null) {
                 this.controlEnrolment.removeEnrolment(enrolmet);
                 System.out.println("Ati renunta cu succes la cursa " + numeCursa);
-            }else {
+            } else {
                 System.out.println("Nu sunteti inscris la cursa " + numeCursa);
             }
-        }else {
+        } else {
             System.out.println("Nu exista cursa " + numeCursa);
         }
     }
 
-    private void afisareMasini(){
+    private void afisareMasini() {
         controlCar.read();
     }
-    
-    private void afisareMasiniPersonale(){
+
+    private void afisareMasiniPersonale() {
         ArrayList<Car> cars = controlCar.listaMasiniPersonale(racer.getRacerId());
-        for (int i=0; i<cars.size(); i++) {
+        for (int i = 0; i < cars.size(); i++) {
             Car car = controlCar.findById(cars.get(i).getCarId());
             System.out.println(car.descriere());
         }
 
     }
 
-    private void adaugaremasina(){
+    private void adaugaremasina() {
         System.out.println("Introduceti modelul masinii");
         Scanner scanner = new Scanner(System.in);
         String model = scanner.nextLine();
-        Car car = controlCar.findByName(model);
-        if (car==null){
+        Car car = controlCar.findByModel(model);
+        if (car == null) {
             System.out.println("Introduceti numarul masinii");
-            int numar=Integer.parseInt(scanner.nextLine());
+            int numar = Integer.parseInt(scanner.nextLine());
             System.out.println("Introduceti marca masinii");
-            String marca=scanner.nextLine();
+            String marca = scanner.nextLine();
 
-            Car car1 = new Car(controlCar.nextId(),this.racer.getRacerId(),numar,marca,model);
+            Car car1 = new Car(controlCar.nextId(), this.racer.getRacerId(), numar, marca, model);
             this.controlCar.add(car1);
             System.out.println("Masina a fost adugata in baza de date");
+        } else {
+            System.out.println(model + " exista deja in lista");
+        }
+    }
+
+    private void eliminareMasina(){
+        System.out.println("Introduceti numele masinii");
+        Scanner scanner = new Scanner(System.in);
+        String model=scanner.nextLine();
+        Car car = controlCar.findByModel(model);
+        if (car!=null){
+            Car car1 = controlCar.findByRacerIdModel(racer.getRacerId(),model);
+            if (car1!=null){
+                controlCar.removeCar(car1);
+                System.out.println("Masina a fost eliminata din baza de date");
+            }else {
+                System.out.println(model + " nu este a dumneavoastra");
+            }
         }else {
-            System.out.println(model+ " exista deja in lista");
+            System.out.println(model+" nu exista in basa de date");
         }
     }
 }
