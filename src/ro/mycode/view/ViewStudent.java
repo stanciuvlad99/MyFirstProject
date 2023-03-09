@@ -1,5 +1,6 @@
 package ro.mycode.view;
 
+import ro.mycode.controllers.ControlCar;
 import ro.mycode.controllers.ControlEnrolment;
 import ro.mycode.controllers.ControlRace;
 import ro.mycode.models.Enrolmet;
@@ -12,10 +13,12 @@ import java.util.Scanner;
 public class ViewStudent {
 
     private Racer racer;
+    private ControlCar controlCar;
     private ControlRace controlRace;
     private ControlEnrolment controlEnrolment;
 
     public ViewStudent() {
+        this.controlCar=new ControlCar();
         this.controlRace = new ControlRace();
         this.controlEnrolment = new ControlEnrolment();
         this.racer = new Racer("2,Alexandru,Radu,30,alexandru.radu@yahoo.com,Password456");
@@ -27,6 +30,7 @@ public class ViewStudent {
         System.out.println("Apasati tasta 2 pentru a vedea curslele la care sunteti inscris");
         System.out.println("Apasati tasta 3 pentru a va inscrie la o cursa");
         System.out.println("Apasati tasta 4 pentru a renunta la o inscriere");
+        System.out.println("Apasati tasta 5 pentru a vedea toate masinile");
     }
 
     private void play() {
@@ -45,6 +49,7 @@ public class ViewStudent {
                 break;
                 case 4:renuntareInscriere();
                 break;
+                case 5:afisareMasini();
                 default:
                     break;
 
@@ -94,5 +99,9 @@ public class ViewStudent {
         }else {
             System.out.println("Nu exista cursa " + numeCursa);
         }
+    }
+
+    private void afisareMasini(){
+        controlCar.read();
     }
 }
