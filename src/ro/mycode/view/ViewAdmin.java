@@ -24,6 +24,7 @@ public class ViewAdmin {
         System.out.println("Apasati tasta 3 pentru a vedea toate cursele");
         System.out.println("Apasati tasta 4 pentru a elimina o cursa");
         System.out.println("Apasati tasta 5 pentru a face update unei curse");
+        System.out.println("Apasati tasta 6 pentru a adaiga o cursa in baza de date");
     }
 
     private void play() {
@@ -46,6 +47,8 @@ public class ViewAdmin {
                     eliminareCursa();
                     break;
                 case 5:update();
+                break;
+                case 6:adugareCursa();
                 break;
                 default:
                     break;
@@ -109,7 +112,20 @@ public class ViewAdmin {
         }
     }
 
-
+    public void adugareCursa(){
+        System.out.println("Introduceti numele curseri");
+        Scanner scanner = new Scanner(System.in);
+        String numeCursa=scanner.nextLine();
+        Race race = controlRace.findByName(numeCursa);
+        if (race==null){
+            System.out.println("Introduceti tipul cursei");
+            String racetype=scanner.nextLine();
+            controlRace.add(new Race(controlRace.nextId(),numeCursa,racetype));
+            System.out.println("Cursa a fost adugata");
+        }else {
+            System.out.println(numeCursa + " exista deja in baza de date");
+        }
+    }
 
 
 
