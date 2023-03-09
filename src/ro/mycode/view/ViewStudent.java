@@ -32,7 +32,8 @@ public class ViewStudent {
         System.out.println("Apasati tasta 3 pentru a va inscrie la o cursa");
         System.out.println("Apasati tasta 4 pentru a renunta la o inscriere");
         System.out.println("Apasati tasta 5 pentru a vedea toate masinile");
-        System.out.println("Apasati tasta 6 pentru a addauga o masina in baza de date");
+        System.out.println("Apasati tasta 6 pentru a vedea masinile dumneavoastra");
+        System.out.println("Apasati tasta 7 pentru a addauga o masina in baza de date");
     }
 
     private void play() {
@@ -53,7 +54,9 @@ public class ViewStudent {
                 break;
                 case 5:afisareMasini();
                 break;
-                case 6:adaugaremasina();
+                case 6:afisareMasiniPersonale();
+                break;
+                case 7:adaugaremasina();
                 break;
                 default:
                     break;
@@ -109,6 +112,16 @@ public class ViewStudent {
     private void afisareMasini(){
         controlCar.read();
     }
+    
+    private void afisareMasiniPersonale(){
+        ArrayList<Car> cars = controlCar.listaMasiniPersonale(racer.getRacerId());
+        for (int i=0; i<cars.size(); i++) {
+            Car car = controlCar.findById(cars.get(i).getCarId());
+            System.out.println(car.descriere());
+        }
+
+    }
+
     private void adaugaremasina(){
         System.out.println("Introduceti modelul masinii");
         Scanner scanner = new Scanner(System.in);
