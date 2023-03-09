@@ -3,6 +3,7 @@ package ro.mycode.view;
 import ro.mycode.controllers.ControlCar;
 import ro.mycode.controllers.ControlEnrolment;
 import ro.mycode.controllers.ControlRace;
+import ro.mycode.models.Car;
 import ro.mycode.models.Enrolmet;
 import ro.mycode.models.Race;
 import ro.mycode.models.Racer;
@@ -31,6 +32,7 @@ public class ViewStudent {
         System.out.println("Apasati tasta 3 pentru a va inscrie la o cursa");
         System.out.println("Apasati tasta 4 pentru a renunta la o inscriere");
         System.out.println("Apasati tasta 5 pentru a vedea toate masinile");
+        System.out.println("Apasati tasta 6 pentru a addauga o masina in baza de date");
     }
 
     private void play() {
@@ -50,6 +52,9 @@ public class ViewStudent {
                 case 4:renuntareInscriere();
                 break;
                 case 5:afisareMasini();
+                break;
+                case 6:adaugaremasina();
+                break;
                 default:
                     break;
 
@@ -103,5 +108,23 @@ public class ViewStudent {
 
     private void afisareMasini(){
         controlCar.read();
+    }
+    private void adaugaremasina(){
+        System.out.println("Introduceti modelul masinii");
+        Scanner scanner = new Scanner(System.in);
+        String model = scanner.nextLine();
+        Car car = controlCar.findByName(model);
+        if (car==null){
+            System.out.println("Introduceti numarul masinii");
+            int numar=Integer.parseInt(scanner.nextLine());
+            System.out.println("Introduceti marca masinii");
+            String marca=scanner.nextLine();
+
+            Car car1 = new Car(controlCar.nextId(),this.racer.getRacerId(),numar,marca,model);
+            this.controlCar.add(car1);
+            System.out.println("Masina a fost adugata in baza de date");
+        }else {
+            System.out.println(model+ " exista deja in lista");
+        }
     }
 }
