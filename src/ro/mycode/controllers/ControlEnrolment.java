@@ -46,4 +46,17 @@ public class ControlEnrolment {
         }
         return list;
     }
+
+    //todo: functie ce creaza un id valabil
+    public int nextId(){
+        if (enrolmets.size()==0){
+            return -1;
+        }
+        return enrolmets.get(enrolmets.size()-1).getEnrolemntId()+1;
+    }
+
+    //todo: functie ce creaza o inscriere, primeste constructor ca parametru
+    public void add(Enrolmet enrolmet){
+        this.enrolmets.add(enrolmet);
+    }
 }

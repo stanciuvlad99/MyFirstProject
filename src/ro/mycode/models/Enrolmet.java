@@ -12,6 +12,12 @@ public class Enrolmet {
         this.raceId = Integer.parseInt(split[2]);
     }
 
+    public Enrolmet(int enrolemntId, int racerId, int raceId){
+        this.enrolemntId=enrolemntId;
+        this.racerId=racerId;
+        this.raceId=raceId;
+    }
+
     public void setRaceId(int raceId) {
         this.raceId = raceId;
     }
