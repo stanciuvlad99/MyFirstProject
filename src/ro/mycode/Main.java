@@ -1,5 +1,7 @@
 package ro.mycode;
 
+import ro.mycode.controllers.ControlAdmin;
+import ro.mycode.view.ViewAdmin;
 import ro.mycode.view.ViewRacer;
 
 public class Main {
@@ -16,8 +18,15 @@ public class Main {
 //        ControlEnrolment controlEnrolment = new ControlEnrolment();
 //        controlEnrolment.read();
 
-        ViewRacer viewRacer = new ViewRacer();
-        System.out.println(viewRacer);
+//        ControlAdmin admin = new ControlAdmin();
+//        admin.read();
+
+//        ViewRacer viewRacer = new ViewRacer();
+//        System.out.println(viewRacer);
+
+
+        ViewAdmin viewAdmin = new ViewAdmin();
+        System.out.println(viewAdmin);
 
     }
 }
