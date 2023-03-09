@@ -7,6 +7,14 @@ public class Car {
     private String brand = "";
     private String model = "";
 
+    public Car(int carId, int racerId, int number, String brand, String model){
+        this.carId=carId;
+        this.racerId=racerId;
+        this.number=number;
+        this.brand=brand;
+        this.model=model;
+    }
+
     public Car(String text) {
         String[] split = text.split(",");
         this.carId = Integer.parseInt(split[0]);

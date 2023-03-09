@@ -28,9 +28,33 @@ public class ControlCar {
         }
     }
 
+    //todo: functie ce afiseaza toate masinile
     public void read(){
         for (int i=0; i<cars.size(); i++){
             System.out.println(cars.get(i).descriere());
         }
+    }
+
+    //todo: functie ce returneaza masina dupa nume, primeste model ca paramametru
+    public Car findByName(String carModel){
+        for (int i=0; i<cars.size(); i++){
+            if (cars.get(i).getModel().equals(carModel)){
+                return cars.get(i);
+            }
+        }
+        return null;
+    }
+
+    //todo: functie ce returneaza un id valabil
+    public int nextId(){
+        if (cars.size()==0){
+            return -1;
+        }
+        return cars.get(cars.size()-1).getCarId()+1;
+    }
+
+    //todo: functie ce creaza o noua masina, primeste constructor ca parametru
+    public void add(Car car){
+        this.cars.add(car);
     }
 }
