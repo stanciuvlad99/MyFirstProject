@@ -105,5 +105,15 @@ public class ControlCar {
         }
     }
 
+    //todo: functie ce returneaza masina, primeste ca paramertru racerId
+    public Car findByRacerId(int racerId){
+        for (int i=0; i<cars.size(); i++){
+            if (cars.get(i).getRacerId()==racerId){
+                return cars.get(i);
+            }
+        }
+        return null;
+    }
+
 
 }
