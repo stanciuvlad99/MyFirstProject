@@ -73,5 +73,15 @@ public class ControlRacer {
         }
         return -1;
     }
+
+    //todo: functie ce returneaza pilot, primeste email si password
+    public Racer findByEmailPassword(String email, String password){
+        for (int i=0; i<racers.size(); i++) {
+            if (racers.get(i).getEmail().equals(email) && racers.get(i).getPassword().equals(password)) {
+                return racers.get(i);
+            }
+        }
+        return null;
+    }
 }
 
