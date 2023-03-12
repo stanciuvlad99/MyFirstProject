@@ -2,6 +2,7 @@ package ro.mycode;
 
 import ro.mycode.controllers.ControlAdmin;
 import ro.mycode.view.ViewAdmin;
+import ro.mycode.view.ViewLogin;
 import ro.mycode.view.ViewRacer;
 
 public class Main {
@@ -25,8 +26,11 @@ public class Main {
 //        System.out.println(viewRacer);
 
 
-        ViewAdmin viewAdmin = new ViewAdmin();
-        System.out.println(viewAdmin);
+//        ViewAdmin viewAdmin = new ViewAdmin();
+//        System.out.println(viewAdmin);
+
+        ViewLogin viewLogin = new ViewLogin();
+        System.out.println(viewLogin);
 
     }
 }
