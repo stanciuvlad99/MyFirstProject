@@ -51,5 +51,27 @@ public class ControlRacer {
         this.racers.remove(racer);
     }
 
+    //todo: functie ce returneaza un id valabil
+    public int nextId(){
+        if (racers.size()==0){
+            return -1;
+        }
+        return racers.get(racers.size()-1).getRacerId()+1;
+    }
+
+    //todo: functie ce adauga un pilot in baza de date, primeste construcor ca parametru
+    public void add(Racer racer){
+        this.racers.add(racer);
+    }
+
+    //todo functie ce returneaza id-ul pilotului, primeste firstName si lastName ca parametri
+    public int returnIdRacer(String firstName, String lastName){
+        for (int i=0; i<racers.size(); i++){
+            if (racers.get(i).getFirstName().equals(firstName) && racers.get(i).getLastName().equals(lastName)){
+                return racers.get(i).getRacerId();
+            }
+        }
+        return -1;
+    }
 }
 

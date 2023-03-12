@@ -8,6 +8,15 @@ public class Racer {
     private String email = "";
     private String password = "";
 
+    public Racer(int racerId, String lastName, String firstName, int age, String email, String password) {
+        this.racerId = racerId;
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.age = age;
+        this.email = email;
+        this.password = password;
+    }
+
     public Racer(String text) {
         String[] split = text.split(",");
         this.racerId = Integer.parseInt(split[0]);
