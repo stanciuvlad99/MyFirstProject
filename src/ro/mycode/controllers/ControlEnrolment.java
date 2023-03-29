@@ -3,11 +3,14 @@ package ro.mycode.controllers;
 import ro.mycode.models.Enrolmet;
 
 import java.io.File;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ControlEnrolment {
 
+    private final  String FINAL_URL="C:\\mycode\\OOP\\Incapsularea\\MyProject3\\src\\ro\\mycode\\data\\enrolment.txt";
     private ArrayList<Enrolmet> enrolmets;
 
     public ControlEnrolment(){
@@ -17,7 +20,7 @@ public class ControlEnrolment {
 
     private void load(){
         try {
-            File file = new File("C:\\mycode\\OOP\\Incapsularea\\MyProject3\\src\\ro\\mycode\\data\\enrolment.txt");
+            File file = new File(FINAL_URL);
             Scanner scanner = new Scanner(file);
             while (scanner.hasNextLine()) {
                 String text = scanner.nextLine();
@@ -85,7 +88,7 @@ public class ControlEnrolment {
             return frecventa;
     }
 
-    //todo: functie ce returneaza pozitia celui mai populate curse, primeste vector ca parametru
+    //todo: functie ce returneaza pozitia celei mai populate curse, primeste vector ca parametru
     public int pozitieMaximaCurse(int vector[]){
         int max=vector[0];
         int pozitie=0;
@@ -99,7 +102,28 @@ public class ControlEnrolment {
         return pozitie;
     }
 
+    //todo: functie ce returneaza id-ul celei mai frecventate competitii
     public int idCeaMaiPopulataCursa(){
         return pozitieMaximaCurse(frecventaCurse());
+    }
+
+    public String toSave(){
+        String save="";
+        for (int i=0; i<enrolmets.size(); i++){
+            save+=enrolmets.get(i).toSave()+"\n";
+        }
+        return save;
+    }
+
+    public void save(){
+        try {
+            File file = new File(FINAL_URL);
+            FileWriter fileWriter = new FileWriter(file);
+            PrintWriter printWriter = new PrintWriter(fileWriter);
+            printWriter.print(toSave());
+            printWriter.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

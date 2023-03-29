@@ -47,4 +47,8 @@ public class Race {
                 raceType;
         return descriere;
     }
+
+    public String toSave(){
+        return this.raceId+","+this.name+","+this.raceType;
+    }
 }

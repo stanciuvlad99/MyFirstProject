@@ -69,4 +69,8 @@ public class Car {
                 " numarul masinii este " + number + ", iar marca si modelul masinii sunt " + brand + " " + model;
         return descriere;
     }
+
+    public String toSave(){
+        return this.carId+","+this.racerId+","+this.number+","+this.brand+","+this.model;
+    }
 }

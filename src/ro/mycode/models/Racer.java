@@ -80,5 +80,9 @@ public class Racer {
                 firstName + ", varsta este " + age + " ani" + " iar email-ul si parola sunt " + email + " " + password;
         return descriere;
     }
+
+    public String toSave(){
+        return this.racerId+","+this.lastName+","+this.firstName+","+this.age+","+this.email+","+this.password;
+    }
 }
 

@@ -3,11 +3,14 @@ package ro.mycode.controllers;
 import ro.mycode.models.Car;
 
 import java.io.File;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ControlCar {
     private ArrayList<Car> cars;
+    private final String FINAL_URL="C:\\mycode\\OOP\\Incapsularea\\MyProject3\\src\\ro\\mycode\\data\\cars.txt";
 
     public ControlCar(){
         this.cars=new ArrayList<>();
@@ -16,7 +19,7 @@ public class ControlCar {
 
     private void load(){
         try {
-            File file = new File("C:\\mycode\\OOP\\Incapsularea\\MyProject3\\src\\ro\\mycode\\data\\cars.txt");
+            File file = new File(FINAL_URL);
             Scanner scanner = new Scanner(file);
             while (scanner.hasNextLine()) {
                 String text = scanner.nextLine();
@@ -115,5 +118,25 @@ public class ControlCar {
         return null;
     }
 
+    //todo: functie ce returneaza toate masinile
+    public String toSave(){
+        String save="";
+        for (int i=0; i<cars.size(); i++){
+            save+=cars.get(i).toSave()+"\n";
+        }
+        return save;
+    }
 
+    //todo: functie ce salveaza fisier text cars
+    public void save(){
+        try {
+            File file = new File(FINAL_URL);
+            FileWriter fileWriter = new FileWriter(file);
+            PrintWriter printWriter = new PrintWriter(fileWriter);
+            printWriter.print(toSave());
+            printWriter.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 }

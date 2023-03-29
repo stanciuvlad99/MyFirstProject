@@ -47,4 +47,8 @@ public class Enrolmet {
                 ", id-ul cursei este " + raceId;
         return descriere;
     }
+
+    public String toSave(){
+        return this.enrolemntId+","+this.racerId+","+this.raceId;
+    }
 }

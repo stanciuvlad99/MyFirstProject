@@ -3,3 +3,8 @@
 3,Urban Speed,cursa de viteza pe strazi urbane
 4,Desert Storm,cursa off-road in desert
 5,Grand Prix Circuit,cursa de viteza pe circuite inchise.
+6,Rally Dakar,cursa off-road de anduranta
+7,Le Mans,cursa off-road de anduranta organizata pe circuitul de la Le Mans
+8,NASCAR,cursa de masini stock car
+9,Drag Racing,cursa de viteză pe distanțe scurte
+10,Touring Car Racing,cursa de masini de turism
