@@ -3,3 +3,8 @@
 3,Marinescu,Ion,28,ion.marinescu@hotmail.com,Secret789
 4,Stoica,Mihai,32,mihai.stoica@gmail.com,123456Abc
 5,Dumitrescu,Victor,31,victor.dumitrescu@yahoo.com,StrongPassword!
+6,Popescu,Alexandru,38,alexandru.popescu@example.com,Alex123#
+7,Marinescu,George,34,george.marinescu@example.com,George456!
+8,Ionescu,Mihai,31,mihai.ionescu@example.com,Mihai789#
+9,Stanescu,Vlad,30,vlad.stanescu@example.com,Vlad123@
+10,Dumitru,Andrei,36,andrei.dumitru@example.com,Andrei456#

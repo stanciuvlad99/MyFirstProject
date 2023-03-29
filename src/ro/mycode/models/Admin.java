@@ -70,4 +70,8 @@ public class Admin {
                 + password + ", iar prenumele si numele de familie sunt " + firstName + " " + lastName;
         return descriere;
     }
+
+    public String toSave(){
+        return this.adminId+","+this.firstName+","+this.lastName+","+this.email+","+this.password;
+    }
 }

@@ -1,5 +1,10 @@
-1,1,1,Porsche,911 GT3 RS
+1,2,1,Porsche,911 GT3 RS
 2,2,2,Subaru,Impreza WRX STI
 3,3,3,Lamborghini,Huracan EVO
 4,4,4,Jeep,Wrangler Rubicon
 5,5,5,McLaren,MCL35M
+6,6,6,Ferrari,488 GTB
+7,7,7,Lamborghini,Huracan Performante
+8,8,8,Aston Martin,Vantage GT3
+9,9,9,Ford,F-150 Raptor
+10,10,10,Mercedes-Benz,G550 4x4

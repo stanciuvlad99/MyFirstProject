@@ -3,11 +3,14 @@ package ro.mycode.controllers;
 import ro.mycode.models.Racer;
 
 import java.io.File;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ControlRacer {
     private ArrayList<Racer> racers;
+    private String FINAL_URL="C:\\mycode\\OOP\\Incapsularea\\MyProject3\\src\\ro\\mycode\\data\\racer.txt";
 
     public ControlRacer(){
         this.racers=new ArrayList<>();
@@ -17,7 +20,7 @@ public class ControlRacer {
     private void load(){
         try {
 
-            File file = new File("C:\\mycode\\OOP\\Incapsularea\\MyProject3\\src\\ro\\mycode\\data\\racer.txt");
+            File file = new File(FINAL_URL);
             Scanner scanner = new Scanner(file);
             while (scanner.hasNextLine()) {
                 String linie = scanner.nextLine();
@@ -83,5 +86,28 @@ public class ControlRacer {
         }
         return null;
     }
+
+    //todo: functie returnaza toti pilotii
+    public String toSave(){
+        String save="";
+        for (int i=0; i<racers.size(); i++){
+            save+=racers.get(i).toSave()+"\n";
+        }
+        return save;
+    }
+
+    //todo: functie ca salveaza fisier text racer
+    public void save(){
+        try {
+            File file = new File(FINAL_URL);
+            FileWriter fileWriter = new FileWriter(file);
+            PrintWriter printWriter = new PrintWriter(fileWriter);
+            printWriter.print(toSave());
+            printWriter.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
 }
 

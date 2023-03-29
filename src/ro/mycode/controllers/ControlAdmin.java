@@ -3,12 +3,15 @@ package ro.mycode.controllers;
 import ro.mycode.models.Admin;
 
 import java.io.File;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ControlAdmin {
 
     private ArrayList<Admin> admins;
+    private final String FINAL_URL="C:\\mycode\\OOP\\Incapsularea\\MyProject3\\src\\ro\\mycode\\data\\admin.txt";
 
     public ControlAdmin(){
         this.admins=new ArrayList<>();
@@ -17,7 +20,7 @@ public class ControlAdmin {
 
     private void load() {
         try {
-            File file = new File("C:\\mycode\\OOP\\Incapsularea\\MyProject3\\src\\ro\\mycode\\data\\admin.txt");
+            File file = new File(FINAL_URL);
             Scanner scanner = new Scanner(file);
             while (scanner.hasNextLine()) {
                 String text = scanner.nextLine();
@@ -46,5 +49,31 @@ public class ControlAdmin {
         return null;
     }
 
+    //todo: functie ce returneaza toti adiminii
+    public String toSave(){
+        String save="";
+        for (int i=0; i<admins.size(); i++){
+            save+=admins.get(i).toSave()+"\n";
+        }
+        return save;
+    }
+
+    //todo: functie ce salveasa fisierul text admin
+    public void save() {
+        try {
+            File file = new File(FINAL_URL);
+            FileWriter fileWriter = new FileWriter(file);
+            PrintWriter printWriter = new PrintWriter(fileWriter);
+            printWriter.print(toSave());
+            printWriter.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    //todo: functie ce adauga un admin in lista, primeste constructor ca parametru
+    public void add(Admin admin){
+        this.admins.add(admin);
+    }
 
 }

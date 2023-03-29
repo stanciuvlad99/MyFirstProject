@@ -3,3 +3,8 @@
 3,Mihai,Stoica,mihai.stoica@hotmail.com,3sDf7#n
 4,Ioana,Dumitrescu,ioanadumitrescu@gmail.com,iOanaD!345
 5,Andrei,Munteanu,andrei.munteanu@outlook.com,Munt3anu#456
+6,Bogdan,Popa,bogdan.popa@example.com,Bogdan123@
+7,Andrei,Mihai,andrei.mihai@example.com,Andrei789#
+8,Gabriel,Nicolescu,gabriel.nicolescu@example.com,Gabriel123#
+9,Alexandru,Radu,alexandru.radu@example.com,Alex456!
+10,Mihai,Tudor,mihai.tudor@example.com,Mihai789#
