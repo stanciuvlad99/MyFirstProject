@@ -108,10 +108,12 @@ public class ControlEnrolment {
     }
 
     public String toSave(){
+        int i=0;
         String save="";
-        for (int i=0; i<enrolmets.size(); i++){
+        for (i=0; i<enrolmets.size()-1; i++){
             save+=enrolmets.get(i).toSave()+"\n";
         }
+        save+=enrolmets.get(i).toSave();
         return save;
     }
 
