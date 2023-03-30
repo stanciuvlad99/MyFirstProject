@@ -18,15 +18,17 @@ public class ViewRacer {
     private ControlRace controlRace;
     private ControlEnrolment controlEnrolment;
 
-    public ViewRacer() {
+    public ViewRacer(Racer racer) {
         this.controlCar = new ControlCar();
         this.controlRace = new ControlRace();
         this.controlEnrolment = new ControlEnrolment();
-        this.racer = new Racer("2,Alexandru,Radu,30,alexandru.radu@yahoo.com,Password456");
+        this.racer = racer;
         play();
     }
 
     private void menu() {
+        System.out.println("Bine ai venit" + racer.getFirstName() + " " + racer.getLastName() + "!");
+        System.out.println("");
         System.out.println("Apasati tasta 1 pentru a vedea toate cursele");
         System.out.println("Apasati tasta 2 pentru a vedea curslele la care sunteti inscris");
         System.out.println("Apasati tasta 3 pentru a va inscrie la o cursa");

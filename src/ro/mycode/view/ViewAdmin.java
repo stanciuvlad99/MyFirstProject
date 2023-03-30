@@ -3,6 +3,7 @@ package ro.mycode.view;
 import ro.mycode.controllers.ControlCar;
 import ro.mycode.controllers.ControlRace;
 import ro.mycode.controllers.ControlRacer;
+import ro.mycode.models.Admin;
 import ro.mycode.models.Car;
 import ro.mycode.models.Race;
 import ro.mycode.models.Racer;
@@ -11,12 +12,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ViewAdmin {
-
+    private Admin admin;
     private ControlCar controlCar;
     private ControlRacer controlRacer;
     private ControlRace controlRace;
 
-    public ViewAdmin() {
+    public ViewAdmin(Admin admin) {
+        this.admin=admin;
         this.controlCar = new ControlCar();
         this.controlRace = new ControlRace();
         this.controlRacer = new ControlRacer();
@@ -24,6 +26,8 @@ public class ViewAdmin {
     }
 
     private void menu() {
+        System.out.println("Bine ai venit" + admin.getFirstName() + " " + admin.getLastName() + "!");
+        System.out.println("");
         System.out.println("Apasati tasta 1 pentru a vedea toti pilotii de curse");
         System.out.println("Apasati tasta 2 pentru a elimina un pilot de curse din baza de date");
         System.out.println("Apasati tasta 3 pentru a vedea toate cursele");
