@@ -120,10 +120,12 @@ public class ControlCar {
 
     //todo: functie ce returneaza toate masinile
     public String toSave(){
+        int i=0;
         String save="";
-        for (int i=0; i<cars.size(); i++){
+        for (i=0; i<cars.size()-1; i++){
             save+=cars.get(i).toSave()+"\n";
         }
+        save+=cars.get(i).toSave();
         return save;
     }
 

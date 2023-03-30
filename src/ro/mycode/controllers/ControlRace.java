@@ -107,10 +107,12 @@ public class ControlRace {
 
     //todo: functie ce returneaza toate cursele
     public String toSave(){
+        int i=0;
         String save="";
-        for (int i=0; i<races.size(); i++){
+        for (i=0; i<races.size()-1; i++){
             save+=races.get(i).toSave()+"\n";
         }
+        save+=races.get(i).toSave();
         return save;
     }
 

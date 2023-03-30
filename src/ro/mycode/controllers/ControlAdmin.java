@@ -51,10 +51,12 @@ public class ControlAdmin {
 
     //todo: functie ce returneaza toti adiminii
     public String toSave(){
+        int i=0;
         String save="";
-        for (int i=0; i<admins.size(); i++){
+        for (i=0; i<admins.size()-1; i++){
             save+=admins.get(i).toSave()+"\n";
         }
+        save+=admins.get(i).toSave();
         return save;
     }
 

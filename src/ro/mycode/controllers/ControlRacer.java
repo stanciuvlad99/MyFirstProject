@@ -89,10 +89,12 @@ public class ControlRacer {
 
     //todo: functie returnaza toti pilotii
     public String toSave(){
+        int i=0;
         String save="";
-        for (int i=0; i<racers.size(); i++){
+        for (i=0; i<racers.size()-1; i++){
             save+=racers.get(i).toSave()+"\n";
         }
+        save+=racers.get(i).toSave();
         return save;
     }
 
