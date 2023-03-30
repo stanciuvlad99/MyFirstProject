@@ -45,15 +45,11 @@ public class ViewLogin {
         String password = scanner.nextLine();
         Racer racer = controlRacer.findByEmailPassword(email, password);
         if (racer != null) {
-            System.out.println("Bine ai venit" + racer.getFirstName() + " " + racer.getLastName() + "!");
-            System.out.println("");
-            ViewRacer viewRacer = new ViewRacer();
+            ViewRacer viewRacer = new ViewRacer(racer);
         }
         Admin admin = controlAdmin.findByEmailPassword(email, password);
         if (admin != null) {
-            System.out.println("Bine ai venit" + admin.getFirstName() + " " + admin.getLastName() + "!");
-            System.out.println("");
-            ViewAdmin viewAdmin = new ViewAdmin();
+            ViewAdmin viewAdmin = new ViewAdmin(admin);
         }
     }
 
